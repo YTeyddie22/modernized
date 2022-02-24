@@ -251,3 +251,44 @@ img {
 .lazy-img {
 	filter: blur(20px);
 }
+
+/* About */
+.about {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+	margin: 0 12rem;
+}
+
+.about__img {
+	width: 100%;
+}
+
+.abouts__about {
+	align-self: center;
+	justify-self: center;
+	width: 70%;
+	font-size: 1.5rem;
+}
+
+.about__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--color-primary-opacity);
+	height: 5.5rem;
+	width: 5.5rem;
+	border-radius: 50%;
+	margin-bottom: 2rem;
+}
+
+.about__icon svg {
+	height: 2.5rem;
+	width: 2.5rem;
+	fill: var(--color-primary);
+}
+
+.about__header {
+	font-size: 2rem;
+	margin-bottom: 1rem;
+}
