@@ -1,2 +1,2 @@
 # Moderna
-### This is a simple landing page that has simple ways of using elements in a modern format
+### This is a simple Practical landing page with modern features
