@@ -1,13 +1,13 @@
 :root {
 	--color-primary: #8d94c5;
 	--color-secondary: #ffcb03;
-	--color-tertiary: #ff585f;
+	--color-tertiary: #ff555d;
 	--color-primary-darker: #435ea2;
 	--color-secondary-darker: #ffbb00;
-	--color-tertiary-darker: #fd424b;
+	--color-tertiary-darker: #c7242d;
 	--color-primary-opacity: #5e6dc53a;
 	--color-secondary-opacity: #ffcd0331;
-	--color-tertiary-opacity: #ff58602d;
+	--color-tertiary-opacity: #fa202bdc;
 	--gradient-primary: linear-gradient(to top left, #3960b3, #5d71e1);
 	--gradient-secondary: linear-gradient(to top left, #ffb003, #ffcb03);
 	--gradient-tertiary: linear-gradient(to top left, #2840c9, #58ffe979);
@@ -177,33 +177,6 @@ h4 {
 	background-image: var(--gradient-primary);
 }
 
-/*Button Continue*/
-
-.btn__text {
-	display: inline-block;
-	background: none;
-	font-size: 2rem;
-	font-family: inherit;
-	font-weight: 500;
-	color: var(--color-gradient-tertiary);
-	border: none;
-
-	padding-bottom: 2px;
-	cursor: pointer;
-	transition: all 0.3s;
-}
-.btn__text:hover {
-	border-bottom: 1px solid var(--color-gradient-tertiary);
-	border-radius: 5rem;
-	padding: 1rem;
-
-	transition: all 0.3s;
-
-	box-shadow: -17px 16px 33px 1px rgba(0, 0, 0, 0.64);
-	-webkit-box-shadow: -17px 16px 33px 1px rgba(0, 0, 0, 0.64);
-	-moz-box-shadow: -17px 16px 33px 1px rgba(0, 0, 0, 0.64);
-}
-
 /* Section */
 
 .section {
@@ -291,4 +264,93 @@ img {
 .about__header {
 	font-size: 2rem;
 	margin-bottom: 1rem;
+}
+
+/* All button section*/
+
+.btn {
+	display: inline-block;
+	background-color: var(--color-primary);
+	font-size: 1.6rem;
+	font-family: inherit;
+	font-weight: 500;
+	border: none;
+	padding: 1.25rem 4.5rem;
+	border-radius: 10rem;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.btn:hover {
+	background-color: var(--color-primary-darker);
+}
+
+/*Button Continue*/
+
+.btn__text {
+	display: inline-block;
+	background: none;
+	font-size: 2rem;
+	font-family: inherit;
+	font-weight: 500;
+	color: var(--color-primary);
+	border: none;
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 2px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.btn__text:hover {
+	border-bottom: 1px solid var(--color-gradient-tertiary);
+	border-radius: 5rem;
+	padding: 1rem;
+
+	transition: all 0.3s;
+
+	box-shadow: -17px 16px 33px 1px rgba(0, 0, 0, 0.64);
+	-webkit-box-shadow: -17px 16px 33px 1px rgba(0, 0, 0, 0.64);
+	-moz-box-shadow: -17px 16px 33px 1px rgba(0, 0, 0, 0.64);
+}
+
+/*Workings btns*/
+
+.workings__containerBtns {
+	display: flex;
+	justify-content: space-around;
+}
+
+.workings__btn {
+	margin-right: 3rem;
+	transform: translateY(-60%);
+}
+
+/*Use inline block mostly with buttons*/
+.workings__btn span {
+	margin-right: 1.5rem;
+	font-weight: 700;
+	display: inline-flex;
+}
+
+.workings__btn--1 {
+	background-color: var(--color-tertiary);
+}
+.workings__btn--1:hover {
+	background-color: var(--color-tertiary-darker);
+}
+
+.workings__btn--2 {
+	background-color: var(--color-secondary);
+}
+
+.workings__btn--2:hover {
+	background-color: var(--color-secondary-darker);
+}
+
+/*Workings section*/
+
+.workings {
+	max-width: 100rem;
+	margin: 10rem auto 0 auto;
+	background-color: #eee;
 }
