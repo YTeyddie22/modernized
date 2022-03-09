@@ -354,3 +354,73 @@ img {
 	margin: 10rem auto 0 auto;
 	background-color: #eee;
 }
+
+/* Workings content section*/
+
+.workings__btn--active {
+	transform: translateY(-90%);
+}
+
+.workings__content {
+	display: none;
+	font-size: 1.8rem;
+	padding: 2.5rem 7rem 6.5rem 7rem;
+	text-align: center;
+}
+
+.workings__content--active {
+	display: grid;
+	grid-template-columns: 7rem 1fr;
+	column-gap: 3rem;
+	row-gap: 0.5rem;
+}
+.workings__header {
+	font-size: 2.3rem;
+	font-weight: 600;
+	align-self: center;
+}
+
+/*Workings Icons svg*/
+
+.workings__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 7rem;
+	width: 7rem;
+	border-radius: 50%;
+}
+.operations__icon svg {
+	height: 2.75rem;
+	width: 2.75rem;
+}
+
+.workings__icon--1 {
+	background-color: var(--color-tertiary-opacity);
+}
+
+.workings__icon--2 {
+	background-color: var(--color-secondary-opacity);
+}
+
+.workings__icon--3 {
+	background-color: var(--color-primary-opacity);
+}
+
+.workings__icon--1 svg {
+	fill: var(--color-secondary-darker);
+}
+
+.workings__icon--2 svg {
+	fill: var(--color-primary);
+}
+
+.workings__icon--3 svg {
+	fill: var(--color-tertiary);
+}
+
+/*Working contents*/
+
+.workings__content p {
+	grid-column: 2;
+}
