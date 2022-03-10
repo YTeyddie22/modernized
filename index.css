@@ -571,3 +571,25 @@ img {
 .section__title--testimonials {
 	margin-bottom: 5rem;
 }
+
+/* SIGNUP */
+.section__sign-up {
+	background-color: #37383d;
+	border-top: none;
+	border-bottom: 1px solid #444;
+	text-align: center;
+	padding: 10rem 3rem;
+}
+
+.section__sign-up .section__header {
+	color: #eee;
+	text-align: center;
+}
+
+.section__sign-up .section__title {
+	margin-bottom: 10rem;
+}
+.section--sign-up .btn {
+	font-size: 2rem;
+	padding: 2rem 5rem;
+}
