@@ -432,6 +432,8 @@ img {
 	height: 50rem;
 	position: relative;
 	margin: 0 auto;
+
+	overflow: hidden;
 }
 
 /*Each slide*/
@@ -445,6 +447,7 @@ img {
 	justify-content: center;
 
 	/*TODO Slider Animation*/
+	transition: transform 1.3s;
 }
 
 .slide > img {
@@ -457,7 +460,7 @@ img {
 	position: absolute;
 	top: 50%;
 	border: none;
-	background: rgba(255, 255, 255, 0.7);
+	background: rgba(255, 255, 255, 0.213);
 	font-family: inherit;
 	color: #333;
 	border-radius: 50%;
@@ -465,7 +468,7 @@ img {
 	width: 5.5rem;
 	font-size: 3.25rem;
 	cursor: pointer;
-	z-index: -1;
+	z-index: 10;
 }
 
 .slider__btn--left {
@@ -513,4 +516,58 @@ img {
 .testimonial {
 	width: 65%;
 	position: relative;
+}
+
+.testimonial::before {
+	content: '\201C';
+
+	position: absolute;
+	top: -5.7rem;
+	left: -6.8rem;
+	line-height: 1;
+	font-size: 20rem;
+	font-family: inherit;
+	color: var(--color-primary);
+	z-index: -1;
+}
+
+.testimonial__header {
+	font-size: 2.3rem;
+	font-weight: 600;
+	margin-bottom: 1.7rem;
+}
+
+.testimonial__text {
+	font-size: 1.6rem;
+	margin-bottom: 3.6rem;
+	color: #666;
+}
+
+.testimonial__author {
+	margin-left: 3rem;
+	font-style: normal;
+
+	display: grid;
+	grid-template-columns: 6.5rem 1fr;
+	column-gap: 2rem;
+}
+
+.testimonial__photo {
+	grid-row: 1 / span 2;
+	width: 6.5rem;
+	border-radius: 50%;
+}
+
+.testimonial__name {
+	font-size: 1.7rem;
+	font-weight: 500;
+	align-self: end;
+	margin: 0;
+}
+
+.testimonial__location {
+	font-size: 1.4rem;
+}
+.section__title--testimonials {
+	margin-bottom: 5rem;
 }
