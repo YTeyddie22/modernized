@@ -67,3 +67,34 @@ const navObserver = new IntersectionObserver(stickyNavigation, {
 	rootMargin: `-${navHeight}px`,
 });
 navObserver.observe(header);
+
+///////////////////////////////////////////////////////////////////
+
+//! 4. Show Contents on scroll
+//* Observer Function
+
+const revealSections = function (entries, observer) {
+	const [entry] = entries;
+
+	if (!entry.isIntersecting) return;
+
+	entry.target.classList.remove('section__hidden');
+
+	observer.unobserve(entry.target);
+};
+
+//* Observer
+
+const sectionObserver = new IntersectionObserver(revealSections, {
+	root: null,
+	threshold: 0.2,
+});
+
+//* For all sections;
+
+allSections.forEach((el) => {
+	sectionObserver.observe(el);
+	el.classList.add('section__hidden');
+});
+
+///////////////////////////////////////////////////////////////////

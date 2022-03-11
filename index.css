@@ -188,7 +188,7 @@ h4 {
 
 .section__hidden {
 	opacity: 0;
-	transform: translateY(8rem);
+	transform: translateY(5rem);
 }
 
 .section__title {
