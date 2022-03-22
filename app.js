@@ -98,3 +98,75 @@ allSections.forEach((el) => {
 });
 
 ///////////////////////////////////////////////////////////////////
+
+//! 4. Slider Section
+
+const sliders = function () {
+	const slides = document.querySelectorAll('.slide');
+	const leftBtn = document.querySelector('.slider__btn--left');
+	const rightBtn = document.querySelector('.slider__btn--right');
+	const dotContainer = document.querySelector('.dots');
+
+	//* Finding the maximum and minimum range of items in the slide.
+
+	let currentSlide = 0;
+	const maxSlide = slides.length - 1;
+
+	//? Functions involved.
+
+	//* Creating the extra dots
+	const createDots = function () {
+		slides.forEach((_, i) => {
+			dotContainer.insertAdjacentHTML(
+				'beforeend',
+				`<button class="dots__dot" data-slide="${i}"></button>`
+			);
+		});
+	};
+
+	//* Creating the active dot
+
+	const activeDot = function (slide) {
+		document.querySelectorAll('.dots__dot').forEach((dot) => {
+			return dot.classList.remove('dots__dot--active');
+		});
+
+		document
+			.querySelector(`.dots__dot[data-slide="${slide}"]`)
+			.classList.add('dots__dot--active');
+	};
+
+	//* Go to next slide function.
+
+	const goToSlide = function (slide) {
+		slides.forEach((el, i) => {
+			return (el.style.transform = `translateX(${100 * (i - slide)}%)`);
+		});
+	};
+
+	const nextSlide = function () {
+		currentSlide === maxSlide ? (currentSlide = 0) : currentSlide++;
+		goToSlide(currentSlide);
+		activeDot(currentSlide);
+	};
+
+	const prevSlide = function () {
+		currentSlide === 0 ? (currentSlide = maxSlide) : currentSlide--;
+
+		goToSlide(currentSlide);
+		activeDot(currentSlide);
+	};
+
+	const init = () => {
+		goToSlide(0);
+		createDots();
+		activeDot(0);
+	};
+
+	init();
+
+	//* EventListeners buttons.
+	rightBtn.addEventListener('click', nextSlide);
+	leftBtn.addEventListener('click', prevSlide);
+};
+sliders();
