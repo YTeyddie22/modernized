@@ -168,5 +168,19 @@ const sliders = function () {
 	//* EventListeners buttons.
 	rightBtn.addEventListener('click', nextSlide);
 	leftBtn.addEventListener('click', prevSlide);
+
+	//* Dots functionalities
+	document.addEventListener('keydown', (e) => {
+		e.key === '&larr' && prevSlide;
+		e.key === '&rarr' && nextSlide;
+	});
+
+	dotContainer.addEventListener('click', (e) => {
+		if (e.target.classList.contains('dots__dot')) {
+			const { slide } = e.target.dataset;
+			goToSlide(slide);
+			activeDot(slide);
+		}
+	});
 };
 sliders();
