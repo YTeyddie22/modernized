@@ -12,8 +12,8 @@ const header = document.querySelector('.header');
 
 //! Workings Component
 
-const works = document.querySelectorAll('.workings__tab');
-const worksContainer = document.querySelector('.workings__containerBtn');
+const works = document.querySelectorAll('.workings__btn');
+const worksContainerBtns = document.querySelector('.workings__containerBtns');
 const worksContent = document.querySelectorAll('.workings__content ');
 
 ////////////////////////////////////////////
@@ -99,7 +99,34 @@ allSections.forEach((el) => {
 
 ///////////////////////////////////////////////////////////////////
 
-//! 4. Slider Section
+//! 4. Workings section
+
+const workings = function (e) {
+	//* Finding the closest btn that is clicked.
+
+	const clicked = e.target.closest('.workings__btn');
+
+	if (!clicked) return;
+
+	//* Remove all the active Contents
+
+	works.forEach((work) => work.classList.remove('workings__btn--active'));
+	worksContent.forEach((content) =>
+		content.classList.remove('workings__content--active')
+	);
+
+	//* Add selected contents.
+
+	document
+		.querySelector(`.workings__content--${clicked.dataset.btn}`)
+		.classList.add('workings__content--active');
+
+	clicked.classList.add('workings__btn--active');
+};
+
+///////////////////////////////////////////////////////////////////////
+
+//! 5. Slider Section
 
 const sliders = function () {
 	const slides = document.querySelectorAll('.slide');
@@ -165,10 +192,6 @@ const sliders = function () {
 
 	init();
 
-	//* EventListeners buttons.
-	rightBtn.addEventListener('click', nextSlide);
-	leftBtn.addEventListener('click', prevSlide);
-
 	//* Dots functionalities
 	document.addEventListener('keydown', (e) => {
 		e.key === '&larr' && prevSlide;
@@ -182,5 +205,13 @@ const sliders = function () {
 			activeDot(slide);
 		}
 	});
+
+	//* EventListeners buttons.
+	rightBtn.addEventListener('click', nextSlide);
+	leftBtn.addEventListener('click', prevSlide);
 };
 sliders();
+
+//! EventListeners
+
+worksContainerBtns.addEventListener('click', workings);
