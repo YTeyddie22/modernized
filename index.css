@@ -653,7 +653,7 @@ img {
 	font-size: 3.5rem;
 }
 
-.btn--close-modal {
+.btn__close-modal {
 	font-family: inherit;
 	color: inherit;
 	position: absolute;

@@ -24,6 +24,38 @@ const nav = document.querySelector('.nav');
 
 //////////////////////////////////////////////////////////
 
+//! Modal section
+
+const modal = document.querySelector('.modal');
+const btnOpenModal = document.querySelectorAll('.btn__show-modal');
+const btnCloseModal = document.querySelector('.btn__close-modal');
+const overlay = document.querySelector('.overlay');
+
+//* Opening the modal;
+const openModal = function () {
+	modal.classList.remove('hidden');
+	overlay.classList.remove('hidden');
+};
+
+//* Closing the modal
+
+const closeModal = function () {
+	modal.classList.add('hidden');
+	overlay.classList.add('hidden');
+};
+
+btnOpenModal.forEach((el, _) => el.addEventListener('click', openModal));
+btnCloseModal.addEventListener('click', closeModal);
+overlay.addEventListener('click', closeModal);
+
+document.addEventListener('keydown', (e) => {
+	if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+		closeModal();
+	}
+});
+
+////////////////////////////////////////////////////////////////
+
 //! 1. Btn scrolling function
 //The Continue btn on click scrolls to the first section
 btnScrollTo.addEventListener('click', () => {
