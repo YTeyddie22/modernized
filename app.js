@@ -24,7 +24,7 @@ const nav = document.querySelector('.nav');
 
 //////////////////////////////////////////////////////////
 
-//! Modal section
+//! 6. Modal section
 
 const modal = document.querySelector('.modal');
 const btnOpenModal = document.querySelectorAll('.btn__show-modal');
@@ -44,7 +44,7 @@ const closeModal = function () {
 	overlay.classList.add('hidden');
 };
 
-btnOpenModal.forEach((el, _) => el.addEventListener('click', openModal));
+btnOpenModal.forEach((el) => el.addEventListener('click', openModal));
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
@@ -53,6 +53,29 @@ document.addEventListener('keydown', (e) => {
 		closeModal();
 	}
 });
+
+/////////////////////////////////////////////////////////////////
+
+//! 7. Navigation section
+
+const handleHoverNav = function (e) {
+	if (e.target.classList.contains('nav__link')) {
+		const link = e.target;
+
+		const siblings = link.closest('.nav').querySelectorAll('.nav__link');
+		const logo = link.closest('nav').querySelector('img');
+
+		siblings.forEach((el) => {
+			if (el !== link) {
+				el.style.opacity = this;
+			}
+		});
+		logo.style.opacity = this;
+	}
+};
+
+nav.addEventListener('mouseover', handleHoverNav.bind(0.5));
+nav.addEventListener('mouseout', handleHoverNav.bind(1));
 
 ////////////////////////////////////////////////////////////////
 
