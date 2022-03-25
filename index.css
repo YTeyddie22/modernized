@@ -221,7 +221,7 @@ img {
 	transition: filter 0.5s;
 }
 
-.lazy-img {
+.lazy_img {
 	filter: blur(20px);
 }
 

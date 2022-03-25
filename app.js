@@ -56,7 +56,7 @@ document.addEventListener('keydown', (e) => {
 
 /////////////////////////////////////////////////////////////////
 
-//! 7. Navigation section
+//! 7. Navigation section fading
 
 const handleHoverNav = function (e) {
 	if (e.target.classList.contains('nav__link')) {
@@ -153,6 +153,29 @@ allSections.forEach((el) => {
 });
 
 ///////////////////////////////////////////////////////////////////
+
+//! 7. Lazy loader
+
+const loader = function (entries, observer) {
+	const [entry] = entries;
+
+	if (!entry.isIntersecting) return;
+
+	entry.target.src = entry.target.dataset.src;
+	entry.target.addEventListener('load', () => {
+		entry.target.classList.remove('lazy_img');
+	});
+
+	observer.unobserve(entry.target);
+};
+
+const imageObserver = new IntersectionObserver(loader, {
+	root: null,
+	rootMargin: '200px',
+	threshold: 0,
+});
+
+images.forEach((el) => imageObserver.observe(el));
 
 //! 4. Workings section
 
