@@ -27,7 +27,7 @@ html {
 }
 
 body {
-	font-family: 'Poppins', sans-serif;
+	font-family: "Poppins", sans-serif;
 	font-weight: 400;
 	color: #555;
 	line-height: 2;
@@ -152,7 +152,7 @@ h4 {
 
 .highlight::after {
 	display: block;
-	content: '';
+	content: "";
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -165,7 +165,7 @@ h4 {
 }
 .highlight2::after {
 	display: block;
-	content: '';
+	content: "";
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -519,7 +519,7 @@ img {
 }
 
 .testimonial::before {
-	content: '\201C';
+	content: "\201C";
 
 	position: absolute;
 	top: -5.7rem;

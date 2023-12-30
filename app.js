@@ -1,55 +1,55 @@
-'use strict';
+"use strict";
 
 //! Main Items;
 
-const allSections = document.querySelectorAll('.section');
-const btnScrollTo = document.querySelector('.btn__scroll-to');
-const section1 = document.querySelector('#section__1');
-const images = document.querySelectorAll('img[data-src]');
-const header = document.querySelector('.header');
+const allSections = document.querySelectorAll(".section");
+const btnScrollTo = document.querySelector(".btn__scroll-to");
+const section1 = document.querySelector("#section__1");
+const images = document.querySelectorAll("img[data-src]");
+const header = document.querySelector(".header");
 
 ///////////////////////////////////////////////////////////
 
 //! Workings Component
 
-const works = document.querySelectorAll('.workings__btn');
-const worksContainerBtns = document.querySelector('.workings__containerBtns');
-const worksContent = document.querySelectorAll('.workings__content ');
+const works = document.querySelectorAll(".workings__btn");
+const worksContainerBtns = document.querySelector(".workings__containerBtns");
+const worksContent = document.querySelectorAll(".workings__content ");
 
 ////////////////////////////////////////////
 
 //! Navigation section selector
 
-const nav = document.querySelector('.nav');
+const nav = document.querySelector(".nav");
 
 //////////////////////////////////////////////////////////
 
 //! 6. Modal section
 
-const modal = document.querySelector('.modal');
-const btnOpenModal = document.querySelectorAll('.btn__show-modal');
-const btnCloseModal = document.querySelector('.btn__close-modal');
-const overlay = document.querySelector('.overlay');
+const modal = document.querySelector(".modal");
+const btnOpenModal = document.querySelectorAll(".btn__show-modal");
+const btnCloseModal = document.querySelector(".btn__close-modal");
+const overlay = document.querySelector(".overlay");
 
 //* Opening the modal;
 const openModal = function () {
-	modal.classList.remove('hidden');
-	overlay.classList.remove('hidden');
+	modal.classList.remove("hidden");
+	overlay.classList.remove("hidden");
 };
 
 //* Closing the modal
 
 const closeModal = function () {
-	modal.classList.add('hidden');
-	overlay.classList.add('hidden');
+	modal.classList.add("hidden");
+	overlay.classList.add("hidden");
 };
 
-btnOpenModal.forEach((el) => el.addEventListener('click', openModal));
-btnCloseModal.addEventListener('click', closeModal);
-overlay.addEventListener('click', closeModal);
+btnOpenModal.forEach((el) => el.addEventListener("click", openModal));
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
 
-document.addEventListener('keydown', (e) => {
-	if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+document.addEventListener("keydown", (e) => {
+	if (e.key === "Escape" && !modal.classList.contains("hidden")) {
 		closeModal();
 	}
 });
@@ -59,11 +59,11 @@ document.addEventListener('keydown', (e) => {
 //! 7. Navigation section fading
 
 const handleHoverNav = function (e) {
-	if (e.target.classList.contains('nav__link')) {
+	if (e.target.classList.contains("nav__link")) {
 		const link = e.target;
 
-		const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-		const logo = link.closest('.nav').querySelector('img');
+		const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+		const logo = link.closest(".nav").querySelector("img");
 
 		siblings.forEach((el) => {
 			if (el !== link) {
@@ -74,29 +74,29 @@ const handleHoverNav = function (e) {
 	}
 };
 
-nav.addEventListener('mouseover', handleHoverNav.bind(0.5));
-nav.addEventListener('mouseout', handleHoverNav.bind(1));
+nav.addEventListener("mouseover", handleHoverNav.bind(0.5));
+nav.addEventListener("mouseout", handleHoverNav.bind(1));
 
 ////////////////////////////////////////////////////////////////
 
 //! 1. Btn scrolling function
 //The Continue btn on click scrolls to the first section
-btnScrollTo.addEventListener('click', () => {
-	section1.scrollIntoView({ behavior: 'smooth' });
+btnScrollTo.addEventListener("click", () => {
+	section1.scrollIntoView({ behavior: "smooth" });
 });
 
 //////////////////////////////////////////////////////////////
 
 //! 2. Each Section Navigation
 
-document.querySelector('.nav__links').addEventListener('click', (e) => {
+document.querySelector(".nav__links").addEventListener("click", (e) => {
 	e.preventDefault();
 
-	const navLink = e.target.classList.contains('nav__link');
+	const navLink = e.target.classList.contains("nav__link");
 
 	if (navLink) {
-		const id = e.target.getAttribute('href');
-		document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+		const id = e.target.getAttribute("href");
+		document.querySelector(id).scrollIntoView({ behavior: "smooth" });
 	}
 });
 
@@ -110,9 +110,9 @@ const stickyNavigation = function (entries) {
 	const [entry] = entries;
 
 	if (!entry.isIntersecting) {
-		nav.classList.add('sticky');
+		nav.classList.add("sticky");
 	} else {
-		nav.classList.remove('sticky');
+		nav.classList.remove("sticky");
 	}
 };
 
@@ -133,7 +133,7 @@ const revealSections = function (entries, observer) {
 
 	if (!entry.isIntersecting) return;
 
-	entry.target.classList.remove('section__hidden');
+	entry.target.classList.remove("section__hidden");
 
 	observer.unobserve(entry.target);
 };
@@ -149,7 +149,7 @@ const sectionObserver = new IntersectionObserver(revealSections, {
 
 allSections.forEach((el) => {
 	sectionObserver.observe(el);
-	el.classList.add('section__hidden');
+	el.classList.add("section__hidden");
 });
 
 ///////////////////////////////////////////////////////////////////
@@ -162,8 +162,8 @@ const loader = function (entries, observer) {
 	if (!entry.isIntersecting) return;
 
 	entry.target.src = entry.target.dataset.src;
-	entry.target.addEventListener('load', () => {
-		entry.target.classList.remove('lazy_img');
+	entry.target.addEventListener("load", () => {
+		entry.target.classList.remove("lazy_img");
 	});
 
 	observer.unobserve(entry.target);
@@ -171,7 +171,7 @@ const loader = function (entries, observer) {
 
 const imageObserver = new IntersectionObserver(loader, {
 	root: null,
-	rootMargin: '200px',
+	rootMargin: "200px",
 	threshold: 0,
 });
 
@@ -182,24 +182,24 @@ images.forEach((el) => imageObserver.observe(el));
 const workings = function (e) {
 	//* Finding the closest btn that is clicked.
 
-	const clicked = e.target.closest('.workings__btn');
+	const clicked = e.target.closest(".workings__btn");
 
 	if (!clicked) return;
 
 	//* Remove all the active Contents
 
-	works.forEach((work) => work.classList.remove('workings__btn--active'));
+	works.forEach((work) => work.classList.remove("workings__btn--active"));
 	worksContent.forEach((content) =>
-		content.classList.remove('workings__content--active')
+		content.classList.remove("workings__content--active")
 	);
 
 	//* Add selected contents.
 
 	document
 		.querySelector(`.workings__content--${clicked.dataset.btn}`)
-		.classList.add('workings__content--active');
+		.classList.add("workings__content--active");
 
-	clicked.classList.add('workings__btn--active');
+	clicked.classList.add("workings__btn--active");
 };
 
 ///////////////////////////////////////////////////////////////////////
@@ -207,10 +207,10 @@ const workings = function (e) {
 //! 5. Slider Section
 
 const sliders = function () {
-	const slides = document.querySelectorAll('.slide');
-	const leftBtn = document.querySelector('.slider__btn--left');
-	const rightBtn = document.querySelector('.slider__btn--right');
-	const dotContainer = document.querySelector('.dots');
+	const slides = document.querySelectorAll(".slide");
+	const leftBtn = document.querySelector(".slider__btn--left");
+	const rightBtn = document.querySelector(".slider__btn--right");
+	const dotContainer = document.querySelector(".dots");
 
 	//* Finding the maximum and minimum range of items in the slide.
 
@@ -223,7 +223,7 @@ const sliders = function () {
 	const createDots = function () {
 		slides.forEach((_, i) => {
 			dotContainer.insertAdjacentHTML(
-				'beforeend',
+				"beforeend",
 				`<button class="dots__dot" data-slide="${i}"></button>`
 			);
 		});
@@ -232,13 +232,13 @@ const sliders = function () {
 	//* Creating the active dot
 
 	const activeDot = function (slide) {
-		document.querySelectorAll('.dots__dot').forEach((dot) => {
-			return dot.classList.remove('dots__dot--active');
+		document.querySelectorAll(".dots__dot").forEach((dot) => {
+			return dot.classList.remove("dots__dot--active");
 		});
 
 		document
 			.querySelector(`.dots__dot[data-slide="${slide}"]`)
-			.classList.add('dots__dot--active');
+			.classList.add("dots__dot--active");
 	};
 
 	//* Go to next slide function.
@@ -271,13 +271,13 @@ const sliders = function () {
 	init();
 
 	//* Dots functionalities
-	document.addEventListener('keydown', (e) => {
-		e.key === '&larr' && prevSlide;
-		e.key === '&rarr' && nextSlide;
+	document.addEventListener("keydown", (e) => {
+		e.key === "&larr" && prevSlide;
+		e.key === "&rarr" && nextSlide;
 	});
 
-	dotContainer.addEventListener('click', (e) => {
-		if (e.target.classList.contains('dots__dot')) {
+	dotContainer.addEventListener("click", (e) => {
+		if (e.target.classList.contains("dots__dot")) {
 			const { slide } = e.target.dataset;
 			goToSlide(slide);
 			activeDot(slide);
@@ -285,11 +285,11 @@ const sliders = function () {
 	});
 
 	//* EventListeners buttons.
-	rightBtn.addEventListener('click', nextSlide);
-	leftBtn.addEventListener('click', prevSlide);
+	rightBtn.addEventListener("click", nextSlide);
+	leftBtn.addEventListener("click", prevSlide);
 };
 sliders();
 
 //! EventListeners
 
-worksContainerBtns.addEventListener('click', workings);
+worksContainerBtns.addEventListener("click", workings);
