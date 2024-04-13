@@ -7,6 +7,9 @@ const btnScrollTo = document.querySelector(".btn__scroll-to");
 const section1 = document.querySelector("#section__1");
 const images = document.querySelectorAll("img[data-src]");
 const header = document.querySelector(".header");
+const mobileLinks = document.querySelector(".nav__links");
+const burger = document.querySelector(".burger");
+const mobileNavLinks = document.querySelectorAll(".nav__item");
 
 ///////////////////////////////////////////////////////////
 
@@ -30,6 +33,46 @@ const modal = document.querySelector(".modal");
 const btnOpenModal = document.querySelectorAll(".btn__show-modal");
 const btnCloseModal = document.querySelector(".btn__close-modal");
 const overlay = document.querySelector(".overlay");
+
+function navSlider() {
+	burger.addEventListener("click", () => {
+		/*
+		mobileNavSection.classList.toggle("navigation-active");
+		navSection.classList.toggle("hide_nav");
+		burger.classList.toggle("menu");
+		burger.closest(".header").classList.toggle("header_opacity_mobile");
+		*/
+		burger.classList.toggle("line");
+		mobileLinks.classList.toggle("hide__nav");
+		console.log(mobileLinks);
+	});
+}
+
+navSlider();
+
+//Mobile Links
+/*
+//Mobile Links function
+mobileLinks.forEach((el, i) => {
+	if (el.style.animation) {
+		return;
+	} else {
+		el.style.animation = `navLinksMovement 1.5s ease forwards ${
+			i / 7 + 0
+		}s`;
+	}
+	el.addEventListener("click", function (event) {
+		event.preventDefault();
+		navSection.classList.add("hide_nav");
+		burger.classList.toggle("menu");
+		burger.closest(".header").classList.toggle("header_opacity_mobile");
+
+		const targetId = event.target.getAttribute("href").substring(1); // Get ID from href
+		document
+			.getElementById(targetId)
+			.scrollIntoView({ behavior: "smooth" });
+	});
+*/
 
 //* Opening the modal;
 const openModal = function () {

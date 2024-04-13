@@ -55,7 +55,7 @@ body {
 /* Logo*/
 
 .logo {
-	height: 4.5rem;
+	font-size: 4rem;
 	transition: all 0.3s;
 }
 
@@ -680,4 +680,159 @@ img {
 .hidden {
 	visibility: hidden;
 	opacity: 0;
+}
+
+/*Mobile Response*/
+
+@media screen and (max-width: 455px) {
+	.nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100vw;
+		padding: 0 3rem;
+
+		.nav__links {
+			align-items: flex-start;
+			margin-top: 1.5rem;
+			z-index: 1;
+			position: absolute;
+			width: 100vw;
+			height: 80%;
+			top: 8%;
+			left: 0;
+			flex-direction: column;
+			background-color: #333;
+			color: #ccc;
+
+			.nav__item {
+				padding: 2.5rem 3rem;
+				margin: 0;
+
+				.nav__link_btn {
+					width: 80vw;
+					text-align: center;
+				}
+			}
+		}
+
+		.hide__nav {
+			display: none;
+		}
+		.burger {
+			display: block;
+			cursor: pointer;
+
+			div {
+				background-color: #555;
+			}
+
+			.line1 {
+				transition: all 0.5s ease-in-out;
+				width: 25px;
+				height: 3px;
+				margin-bottom: 2px;
+			}
+
+			.line2 {
+				transition: all 0.5s ease-in-out;
+				width: 25px;
+				height: 3px;
+				margin-bottom: 2px;
+			}
+
+			.line3 {
+				transition: all 0.5s ease-in-out;
+				width: 25px;
+				height: 3px;
+				margin-bottom: 2px;
+			}
+		}
+
+		.line {
+			.line1 {
+				transform: rotate(-45deg) translate(-3px, 2px);
+			}
+			.line2 {
+				opacity: 0;
+			}
+			.line3 {
+				transform: rotate(45deg) translate(-5px, -5px);
+			}
+		}
+	}
+
+	.header__introduction-title {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		.header__img {
+			display: none;
+		}
+
+		.highlight2::after {
+			top: 1rem;
+		}
+	}
+
+	.section__title {
+		.section__description {
+			font-size: 2rem;
+		}
+		.section__header {
+			font-size: 1.7rem;
+		}
+	}
+
+	.about {
+		margin: 0;
+		grid-template-columns: 1fr;
+		display: grid;
+		grid-template:
+			"image1"
+			"about1"
+			"image2"
+			"about2"
+			"image3"
+			"about3";
+
+		.about__img-1 {
+			grid-area: image1;
+		}
+
+		.about__img-2 {
+			grid-area: image2;
+		}
+
+		.about__img-3 {
+			grid-area: image3;
+		}
+		.about__about-1 {
+			grid-area: about1;
+		}
+
+		.about__about-2 {
+			grid-area: about2;
+		}
+
+		.about__about-3 {
+			grid-area: about3;
+		}
+
+		.abouts__about {
+			width: 100%;
+		}
+	}
+
+	.footer {
+		width: 100vw;
+		.footer__nav {
+			flex-direction: column;
+
+			.footer__item {
+				padding-top: 1.4rem;
+			}
+		}
+	}
 }
