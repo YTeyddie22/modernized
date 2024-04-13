@@ -389,6 +389,10 @@ img {
 	height: 7rem;
 	width: 7rem;
 	border-radius: 50%;
+
+	svg {
+		width: 3rem;
+	}
 }
 .operations__icon svg {
 	height: 2.75rem;
