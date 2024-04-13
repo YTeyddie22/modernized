@@ -829,6 +829,38 @@ img {
 		}
 	}
 
+	.workings {
+		margin: 4rem auto 0;
+		.workings__containerBtns {
+			display: none;
+		}
+
+		.workings__content {
+			display: flex;
+			flex-direction: column;
+			padding: 2.5rem;
+			gap: 1.5rem;
+
+			.workings__header {
+				font-size: 1.8rem;
+			}
+
+			p {
+				font-size: 1.4rem;
+			}
+		}
+	}
+
+	.modal {
+		width: 80%;
+		.modal__header {
+			font-size: 2rem;
+		}
+
+		.modal__socials {
+			margin: 0;
+		}
+	}
 	.footer {
 		width: 100vw;
 		.footer__nav {
